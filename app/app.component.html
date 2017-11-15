@@ -1,0 +1,54 @@
+<h1 class="text-center">
+ {{title}}
+</h1>
+<div class="container">
+  <div class="row">
+    <h1 class="text-center">Temperature Monitor</h1>
+    <br>
+    <div class="col-xs-12 col-md-12 text-center">
+      <form (ngSubmit)="recordTemperature(f)" #f="ngForm">
+        <label for="temperature">Add Temperature:</label>
+        <input 
+              name="temperature" 
+              id="temperature" 
+              ngModel
+              type="number" 
+              required
+              pattern="^-?[1-9][0-9]$|^100$|^-100$"
+              (keyup)="onKey($event)">
+        <p class="help" >{{alertText}}</p>
+        <button type="submit" [disabled]="!f.valid" class="btn btn-xs btn-primary">Add</button>
+      </form>
+      <hr>
+      <label> Collection of Temperatures</label>
+      <br>
+      <div class="progress">
+        <div 
+            class="progress-bar progress-bar-success progress-bar-striped active" 
+            role="progressbar" 
+            [attr.aria-valuenow]="usedPercentage" 
+            aria-valuemin="0" 
+            aria-valuemax="8" 
+            [style.width.%]="usedPercentage">
+          {{usedPercentage}}
+        </div>
+      </div>
+      <hr>
+      
+      <section>
+        <button (click)="getCurrentMedian()" class="btn btn-xs btn-success">Get Median Temperature</button>
+        <br>
+        <br>
+        Current Median: {{median}}
+        <hr class="primary">
+        <!-- display current media here-->
+      </section>
+      <p>developer name: {{developerName}}</p>
+    </div>
+    
+    <div class="col-xs-12 col-md-8">
+    </div>
+  </div>
+</div>
+
+
