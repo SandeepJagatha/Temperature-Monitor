@@ -54,25 +54,6 @@ As an anonymous end user, I want a progress bar to see how full my collection of
 ```[5, 1, -7, 7, 8, 3, 9] --> [-7, 1, 3, 5, 7, 8, 9] = 5```
 
 
-##Detailed instructions
-
-- **Fork** this Plunker Project
-- Put your name in the "--your name here--" placeholder in the index.html file
-- Code
-    - Run the tests using the "Run Unit Tests" link. Please run your tests as often as you like
-    - Create as many TypeScript, HTML, and CSS files as you feel is appropriate
-    - The example components are there to help you get started and can be deleted if you think it appropriate
-- Make sure you unit test your code
-- Document your thought processes in this readme under the heading "Thought Process"
-- Note any resources that you needed to search for during the exercise 
-- **Save** + **Freeze** and Send us the link to your forked Plunker
-
-Jasmine documentation can be found [here][Jasmine]
-
-You can find a definition of what a Median is on [wikipedia][Median]
-
-##Thought Process
-
 
 ##Resources
 
