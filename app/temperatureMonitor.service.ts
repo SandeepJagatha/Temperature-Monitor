@@ -2,29 +2,32 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TemperatureMonitorService {
-  temperature_list : number[] = [];
+  tempList : number[] = [];
   median : number = undefined;
   
-  recordTemperature (enteredTemperature : number) : void {
-        this.temperature_list.push(enteredTemperature);
+  getUsedPercentage(): number {
+    return Math.floor((this.tempList.length / 8) * 100);
   }
   
   getCurrentMedian() : number {
-    this.temperature_list.sort( function(a,b) {return a-b;});
+    this.tempList.sort( function(a,b) {return a-b;});
     
-    let len = this.temperature_list.length;
-    let mid = Math.floor(len/2);  
+    let tempMid = Math.floor(this.tempList.length/2);  
     
-    if (len % 2 == 1){
-      this.median = this.temperature_list[mid];
+    if (this.tempList.length % 2 == 1){
+      this.median = this.tempList[tempMid];
     }else{
-      this.median = (Number(this.temperature_list[mid]) + Number(this.temperature_list[(mid) - 1])) / 2;
+      this.median = (Number(this.tempList[tempMid]) + Number(this.tempList[(tempMid) - 1])) / 2;
     }
     
     return this.median;
   }
   
-  getUsedPercentage(): number {
-    return Math.floor((this.temperature_list.length / 8) * 100);
+  recordTemperature (temperatureValue : number) : void {
+        this.tempList.push(temperatureValue);
+  }
+  
+  getTempListSize(): number {
+    return this.tempList.length;
   }
 }

@@ -14,7 +14,7 @@
               ngModel
               type="number" 
               required
-              pattern="^-?[1-9][0-9]$|^100$|^-100$"
+              pattern="^-?[0-9]$|[1-9][0-9]$|^100$|^-100$"
               (keyup)="onKey($event)">
         <p class="help" >{{alertText}}</p>
         <button type="submit" [disabled]="!f.valid" class="btn btn-xs btn-primary">Add</button>
@@ -30,7 +30,7 @@
             aria-valuemin="0" 
             aria-valuemax="8" 
             [style.width.%]="usedPercentage">
-          {{usedPercentage}}
+          {{usedSize}}/{{totalSize}}
         </div>
       </div>
       <hr>

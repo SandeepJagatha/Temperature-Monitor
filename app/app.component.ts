@@ -13,7 +13,7 @@ export class AppComponent {
   title: string = 'app works!';
   developerName = 'Jagata';
   median: number;
-  total_size: number = 8;
+  totalSize: number = 8;
   alertText: string;
   usedPercentage: number = 0;
   
@@ -39,15 +39,16 @@ export class AppComponent {
   recordTemperature(form: NgForm) {
     const temperatureValue = form.value.temperature;
     
-    if (this.temperatureMonitorService.temperature_list.length == this.total_size) {
-      this.alertText = 'Reached max collection of temperatures :  ' + this.total_size + '.';
+    if (this.temperatureMonitorService.tempList.length == this.totalSize) {
+      this.alertText = 'Reached max collection of temperatures : ' + this.totalSize + '.';
       return;
     } 
     
     if (temperatureValue >= -100 && temperatureValue <= 100) {
       this.temperatureMonitorService.recordTemperature(temperatureValue);
       this.usedPercentage = this.temperatureMonitorService.getUsedPercentage();
-      form.reset();
+      this.usedSize = this.temperatureMonitorService.getTempListSize()
+      //form.reset();
     } else {
       this.alertText = 'Temperature range should be in the -100 to 100 degress.';
     }
